@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Acceuil
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logoutFn()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle color="primary">CasaTourisme</ion-card-subtitle>
+      <ion-card-title>Informations</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Pour la simplification de l'utilisation, on vous propose de choisir le lieu touristique que vous desirez parmis les suggestions, si non chosissez le lieu touristique que vous desirez sur le menu. On vous souhaite une bonne utilisation!
+    </ion-card-content>
+  </ion-card>
+
+<ion-card *ngFor="let place of places">
+    <ion-card-header>
+      <ion-card-subtitle color="primary">CasaTourisme</ion-card-subtitle>
+      <ion-card-title>Top suggestions</ion-card-title>
+    </ion-card-header>
+    <ion-item routerLink="/all/{{place.Id}}" class="ion-activated">
+      <img src="{{place.image}}" alt="">
+      <ion-label> <h1 style="font-weight:bold ; color: gray; font-style: oblique">&nbsp;{{place.name}}</h1></ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

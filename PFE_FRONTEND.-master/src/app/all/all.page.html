@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Casatourisme</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+    <ion-card-subtitle color="primary">CasaTourisme</ion-card-subtitle>
+
+
+    <ion-item *ngIf="IsLoged">
+      <ion-label>Votre note</ion-label>
+      <ion-select (ionChange)="change(Note.value)" #Note interface="popover">
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="ion-activated">
+      <img src="{{lieu.image}}" alt="">
+    </ion-item>
+    <ion-card>
+      <ion-item class="ion-activated">
+        <h5 style="color: gray;">
+          {{lieu.name}}
+        </h5>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item class="ion-activated">
+        {{lieu.description}}
+      </ion-item>
+    </ion-card>
+
+    <ion-card *ngIf="Bus.length > 0">
+      <ion-card-header>
+        <ion-card-title>Bus</ion-card-title>
+      </ion-card-header>
+      <br>
+      <ul>
+        <li *ngFor="let item of Bus">{{item.Numero}}: {{item.Destination}} - {{item.Terminus}}<br></li>
+      </ul>
+
+    </ion-card>
+
+    <ion-card *ngIf="Trams.length > 0">
+      <ion-card-header>
+        <ion-card-title>Tramway</ion-card-title>
+      </ion-card-header>
+      <ul>
+        <li *ngFor="let item of Trams">{{item.Destination}} - {{item.Terminus}}<br> </li>
+      </ul>
+
+    </ion-card>
+
+    <ion-card *ngIf="Taxi.length > 0">
+      <ion-card-header>
+        <ion-card-title>Taxi</ion-card-title>
+      </ion-card-header>
+      <ul>
+        <li *ngFor="let item of Taxi">{{item.Destination}} - {{item.Terminus}} </li>
+      </ul>
+
+  </ion-card>
+
+  </ion-card>
+
+</ion-content>
